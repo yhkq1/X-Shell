@@ -1,0 +1,24 @@
+{
+  "name": "script-provider",
+  "version": "2.0.4",
+  "description": "Simple API to provide powerful Scripts that establish a reverse Shell",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "api",
+    "authentication",
+    "token",
+    "vercel"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
