@@ -54,15 +54,14 @@ To set up Revshell X, you will need:
     - Ensure the API logs or restricts access securely.
 
 3. **Modify the script with your bot details**
-    - Update `$botToken`, `$serverID`, and `$categoryID` in the script.
+    - Update `$t`, `$s`, and `$categoryID` in the script.
 
 4. **Deploy the dropper**
     - Use the provided PowerShell one-liner to execute the dropper.
 
-## Discord Server Template
+## [Discord Server Template](https://discord.new/AFkzNqmAdmex)
 For convenience, a preconfigured **Discord server template** is provided, which includes:
 - A category for dynamically created channels
-- Proper bot permissions
 - Logging channels (optional)
 
 ## Disclaimer
