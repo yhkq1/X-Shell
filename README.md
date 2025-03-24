@@ -31,7 +31,7 @@ The full API code is located under the `/API/` directory. To deploy it, follow t
 
 ### 3. **Discord C2 Server**
 The core reverse shell logic uses a **Discord bot** to communicate with a designated **Discord server**. When the script runs, it:
-- Creates a new **private channel** in a predefined category.
+- Creates a new **channel** in a predefined category.
 - Reads messages from the channel for incoming commands.
 - Executes the received PowerShell commands on the target machine.
 - Returns command output back to the channel.
