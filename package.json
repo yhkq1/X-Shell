@@ -1,7 +1,7 @@
 {
-  "name": "script-provider",
+  "name": "xshell api",
   "version": "2.0.4",
-  "description": "Simple API to provide powerful Scripts that establish a reverse Shell",
+  "description": "Simple API",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
