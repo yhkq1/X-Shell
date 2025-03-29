@@ -45,4 +45,4 @@ What this does:
 - creating a hidden folder `MicrosoftServices` in the user's Documents folder (can be anywhere)
 - adds a .ps1 script that contains the api call for the revershe Shell script
 - adds a vbs script that runs the powershell script in the background
-- creates a registry key in HKCU (on login), that runs the vbs file
+- creates a HKCU registry key that runs the vbs file
